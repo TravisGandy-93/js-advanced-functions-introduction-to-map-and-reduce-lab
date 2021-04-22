@@ -30,8 +30,28 @@ function mapToSquare(array) {
     return temp;
 }
 
-const reduceToTotal = (array, startval) => array.reduce(function(total, element){ return element + total}, startval);
+function reduceToTotal(sourceArray, startingPoint=0) {
+    let total = startingPoint
+    for (let i=0; i<sourceArray.length; i++) {
+        total = total + sourceArray[i]
+    }
+    return total;
+}
 
-const reduceToAllTrue = (array) => array.reduce(function(total, element){ return total && Boolean(element)}, true)
+function reduceToAllTrue(sourceArray) {
+    for (let i=0; i<sourceArray.length; i++) {
+        if (!sourceArray[i]){
+            return false;
+        } 
+    }
+    return true 
+}
 
-const reduceToAnyTrue = (array) => array.reduce(function(total, element){ return element ?  true : false }, true)
+function reduceToAnyTrue(sourceArray) {
+    for (let i=0; i<sourceArray.length; i++) {
+        if (sourceArray[i]){
+            return true;
+        } 
+    }
+    return false;
+}
